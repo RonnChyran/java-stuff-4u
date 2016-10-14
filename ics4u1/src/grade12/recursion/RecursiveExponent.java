@@ -10,10 +10,15 @@ public class RecursiveExponent extends ReviewResponse {
 	@Override
 	public void main()
 	{
-		System.out.println(recursiveExponent(10, -3));
-		System.out.println(isPrime(4));
+		System.out.println(countMoves(8));
+	//	System.out.println(isPrime(4));
 	}
-	
+
+	public int countMoves(long size)
+	{
+		if(size <= 1) return 1; 
+		return 2 * countMoves(size - 1) + 1 ;
+	}
 	public double recursiveExponent(double x, int n)
 	{
 		if(n > 0) return recursiveExponent(x, n-1) * x;
@@ -31,4 +36,6 @@ public class RecursiveExponent extends ReviewResponse {
 		if(n % m == 0) return false;
 		return isPrime(n, m-1);
 	}
+	
+	
 }
