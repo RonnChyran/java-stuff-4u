@@ -67,12 +67,13 @@ public class StringRecursionCountUpper extends ReviewResponse {
 		if(isVowel(s1.charAt(0))) return equalsIgnoreVowel(s1.substring(1), s2);
 		if(isVowel(s2.charAt(0))) return equalsIgnoreVowel(s1, s2.substring(1));
 		return (s1.charAt(0) == s2.charAt(0)) 
-			&& equalsIgnoreCase(s1.substring(1), s2.substring(1));
+			&& equalsIgnoreVowel(s1.substring(1), s2.substring(1));
 
 	}
 	
 	private boolean isVowel(char c)
 	{
-		return "aeiou".indexOf(c) < 0;
+		c = Character.toLowerCase(c);
+		return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 	}
 }
